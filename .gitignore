@@ -1,4 +1,33 @@
+# A wiki repo only ever tracks: raw/, wiki/, and the top-level docs.
+# Everything below is local/runtime junk that must never enter a wiki repo —
+# a single `git add -A` sweeping a runtime tree in is what produced a 1,000-file
+# pack and an HTTP 500 on push. Keep this list ahead of that failure mode.
+
+# Editor / OS
 .obsidian/
-node_modules/
 .DS_Store
 Thumbs.db
+*.stackdump
+
+# Dev / language toolchains (any level)
+node_modules/
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+.env
+.env.*
+*.log
+
+# Stray runtime/app/install trees that have ended up beside wiki content
+# (root-anchored so a legitimately-named wiki page is never hidden)
+/comfy/
+/ComfyUI/
+/models/
+/output/
+/input/
+/temp/
+/tmp/
+/pip-cache/
+/.cache/
